@@ -15,7 +15,7 @@ class Inspector():
 	txt_padding_y = 10
 
     # Initalises the root and it's components
-	def CreateUIComponents(self):
+	def create_ui_components(self):
 		self.root = tkinter.Tk()
 		self.root.geometry("850x500")
 		self.root.config(padx=self.root_padding_x, pady=self.root_padding_y)
@@ -23,13 +23,13 @@ class Inspector():
 	
 		
 
-		self.CreateFrames()
-		self.CreateTextAreas()
-		self.CreateButtons()
+		self.create_frames()
+		self.create_text_areas()
+		self.create_buttons()
 
 
 	# Creates the widget containers
-	def CreateFrames(self):
+	def create_frames(self):
 		self.txt_area_frame = tkinter.Frame(self.root, bg="green")
 		self.txt_area_frame.pack(side="top", expand=True, fill=tkinter.BOTH)
 
@@ -37,13 +37,13 @@ class Inspector():
 		self.btn_area_frame.pack(side="bottom", fill=tkinter.BOTH)
 
 	# Define and initalise the text areas
-	def CreateTextAreas(self):
+	def create_text_areas(self):
 		self.txt_input_area = tkinter.Text(self.txt_area_frame)
 		self.txt_input_area.config(padx=self.txt_padding_x, pady=self.txt_padding_y)
 		self.txt_input_area.pack(expand=True, fill=tkinter.BOTH)
 
 	# Define and initalise the buttons
-	def CreateButtons(self):
+	def create_buttons(self):
 		self.submit_btn = tkinter.Button(self.btn_area_frame, text="Submit")
 		self.submit_btn.config(width=self.btn_width, height=self.btn_height)
 		self.submit_btn.pack(side="right", padx=self.btn_padding_x, pady=self.btn_padding_y)
@@ -53,5 +53,5 @@ class Inspector():
 		self.clear_btn.pack(side="right", padx=self.btn_padding_x, pady=self.btn_padding_y)
 
 	def __init__(self):
-		self.CreateUIComponents()
+		self.create_ui_components()
 		self.root.mainloop()
