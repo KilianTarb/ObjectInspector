@@ -1,4 +1,4 @@
-from src import Inspector
+from src import inspector
 
 if __name__ == "__main__":
-  Inspector.Inspector()
+	inspector.inspector()

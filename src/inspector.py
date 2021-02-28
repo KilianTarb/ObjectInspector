@@ -1,7 +1,7 @@
 import tkinter
 
 
-class Inspector():
+class inspector():
 	"""
 	Object Inspector root window.
 	"""
