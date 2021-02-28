@@ -1,61 +1,57 @@
 import tkinter
 
-# Main application window
+# Main application root
 class Inspector():
-	windowPaddingX = 10
-	windowPaddingY = 10
+	root_padding_x = 10
+	root_padding_y = 10
 
-	buttonFrameHeight = 300
-	buttonWidth = 15
-	buttonHeight = 1
-	buttonPaddingX = 5
-	buttonPaddingY = 5
+	btn_frame_height = 300
+	btn_width = 15
+	btn_height = 1
+	btn_padding_x = 5
+	btn_padding_y = 5
 
-	textInputAreaPaddingX = 50
-	textInputAreaPaddingY = 25
+	txt_padding_x = 10
+	txt_padding_y = 10
 
-    # Initalises the window and it's components
+    # Initalises the root and it's components
 	def CreateUIComponents(self):
-		self.window = tkinter.Tk()
-		self.window.geometry("850x500")
-		self.window.config(padx=self.windowPaddingX, pady=self.windowPaddingY)
-		self.window.title("Object Inspector")
+		self.root = tkinter.Tk()
+		self.root.geometry("850x500")
+		self.root.config(padx=self.root_padding_x, pady=self.root_padding_y)
+		self.root.title("Object Inspector")
+	
+		
 
 		self.CreateFrames()
 		self.CreateTextAreas()
 		self.CreateButtons()
 
 
+	# Creates the widget containers
 	def CreateFrames(self):
-		# Create frames
-		self.inspectorAreaFrame = tkinter.Frame(self.window, bg="red")
-		self.inspectorAreaFrame.pack(side="top", expand=True, fill=tkinter.BOTH)
+		self.txt_area_frame = tkinter.Frame(self.root, bg="green")
+		self.txt_area_frame.pack(side="top", expand=True, fill=tkinter.BOTH)
 
-		self.textAreaFrame = tkinter.Frame(self.window, bg="green")
-		self.textAreaFrame.pack(side="top", expand=True, fill=tkinter.BOTH)
+		self.btn_area_frame = tkinter.Frame(self.root, bg="blue", height=self.btn_frame_height)
+		self.btn_area_frame.pack(side="bottom", fill=tkinter.BOTH)
 
-		self.buttonAreaFrame = tkinter.Frame(self.window, bg="blue", height=self.buttonFrameHeight)
-		self.buttonAreaFrame.pack(side="bottom", fill=tkinter.BOTH)
-	
-
+	# Define and initalise the text areas
 	def CreateTextAreas(self):
-		self.textInputArea = tkinter.Text(self.textAreaFrame)
-		self.textInputArea.config(padx=self.textInputAreaPaddingX, pady=self.textInputAreaPaddingY)
-		self.textInputArea.pack(expand=True, fill=tkinter.BOTH)
+		self.txt_input_area = tkinter.Text(self.txt_area_frame)
+		self.txt_input_area.config(padx=self.txt_padding_x, pady=self.txt_padding_y)
+		self.txt_input_area.pack(expand=True, fill=tkinter.BOTH)
 
-
+	# Define and initalise the buttons
 	def CreateButtons(self):
-		# Create buttons
-		self.submitBtn = tkinter.Button(self.buttonAreaFrame, text="Submit")
-		self.submitBtn.config(width=self.buttonWidth, height=self.buttonHeight)
-		self.submitBtn.pack(side="right", padx=self.buttonPaddingX, pady=self.buttonPaddingY)
+		self.submit_btn = tkinter.Button(self.btn_area_frame, text="Submit")
+		self.submit_btn.config(width=self.btn_width, height=self.btn_height)
+		self.submit_btn.pack(side="right", padx=self.btn_padding_x, pady=self.btn_padding_y)
 
-		self.clearBtn = tkinter.Button(self.buttonAreaFrame, text="Clear")
-		self.clearBtn.config(width=self.buttonWidth, height=self.buttonHeight)
-		self.clearBtn.pack(side="right", padx=self.buttonPaddingX, pady=self.buttonPaddingY)
-
-
+		self.clear_btn = tkinter.Button(self.btn_area_frame, text="Clear")
+		self.clear_btn.config(width=self.btn_width, height=self.btn_height)
+		self.clear_btn.pack(side="right", padx=self.btn_padding_x, pady=self.btn_padding_y)
 
 	def __init__(self):
 		self.CreateUIComponents()
-		self.window.mainloop()
+		self.root.mainloop()
