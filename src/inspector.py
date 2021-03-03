@@ -14,7 +14,7 @@ class inspector():
 		"""
 
 		self.root = tkinter.Tk()
-		self.root.geometry("850x500")
+		self.root.geometry("1000x750")
 		self.root.config(padx=i_config.ROOT_PADDING_X, pady=i_config.ROOT_PADDING_Y)
 		self.root.title("Object Inspector")
 
